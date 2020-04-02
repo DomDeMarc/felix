@@ -24,7 +24,7 @@
 # exactly the files that we need and let the rest be pulled from the system's standard include
 # directories.
 LINUX_COMMON=$(wildcard /usr/src/linux-headers-*-common)
-LINUX_AMD64=$(wildcard /usr/src/linux-headers-*-amd64)
+LINUX_PPC64LE=$(wildcard /usr/src/linux-headers-*-powerpc64le)
 
 CFLAGS +=  \
 	-x c \
@@ -41,7 +41,7 @@ CFLAGS +=  \
 	-O2 \
 	-emit-llvm \
 	--include=$(LINUX_COMMON)/include/uapi/linux/bpf.h \
-	--include=$(LINUX_AMD64)/include/generated/uapi/linux/version.h
+	--include=$(LINUX_PPC64LE)/include/generated/uapi/linux/version.h
 
 CC := clang
 LD := llc
